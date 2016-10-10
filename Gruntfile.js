@@ -119,7 +119,16 @@ module.exports = function(grunt) {
           failIfTrimmed: true
         }
       }
-    }
+    },
+    watch: {
+      scripts: {
+        files: ['src/**/*.js'],
+        tasks: ['build'],
+        options: {
+          spawn: false,
+        },
+      },
+    },
   });
 
 
@@ -131,6 +140,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-peg');
   grunt.loadNpmTasks('grunt-trimtrailingspaces');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('grammar', ['peg']);
 
