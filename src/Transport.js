@@ -164,6 +164,11 @@ Transport.prototype = {
       this.logger.warn('error connecting to WebSocket ' + this.server.ws_uri + ': ' + e);
     }
 
+    if (!this.ws) {
+      transport.onError('Websocket could not be instantiated.');
+      return;
+    }
+
     this.ws.binaryType = 'arraybuffer';
 
     this.ws.onopen = function() {
@@ -344,7 +349,8 @@ Transport.prototype = {
   * @param {event} e
   */
   onError: function(e) {
-    this.logger.warn('WebSocket connection error: ' + JSON.stringify(e));
+    this.logger.warn('WebSocket connection error: ');
+    this.logger.warn(e);
   },
 
   /**

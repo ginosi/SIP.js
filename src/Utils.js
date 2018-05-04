@@ -19,17 +19,11 @@ Utils= {
     return deferred;
   },
 
-  promisify: function promisify (object, methodName, callbacksFirst) {
-    var oldMethod = object[methodName];
-    return function promisifiedMethod (arg, onSuccess, onFailure) {
-      return new Utils.Promise(function (resolve, reject) {
-        var oldArgs = [arg, resolve, reject];
-        if (callbacksFirst) {
-          oldArgs = [resolve, reject, arg];
-        }
-        oldMethod.apply(object, oldArgs);
-      }).then(onSuccess, onFailure);
-    };
+  reducePromises: function reducePromises(arr, val) {
+    return arr.reduce(function(acc, fn) {
+      acc = acc.then(fn);
+      return acc;
+    }, SIP.Utils.Promise.resolve(val));
   },
 
   augment: function (object, constructor, args, override) {
@@ -178,13 +172,10 @@ Utils= {
 
       // Build the complete SIP URI.
       target = SIP.C.SIP + ':' + SIP.Utils.escapeUser(target_user) + '@' + target_domain;
-
       // Finally parse the resulting URI.
-      if (uri = SIP.URI.parse(target)) {
-        return uri;
-      } else {
-        return;
-      }
+      uri = SIP.URI.parse(target);
+
+      return uri;
     } else {
       return;
     }
@@ -243,7 +234,7 @@ Utils= {
 
   getReasonHeaderValue: function getReasonHeaderValue (code, reason) {
     reason = SIP.Utils.getReasonPhrase(code, reason);
-    return 'SIP ;cause=' + code + ' ;text="' + reason + '"';
+    return 'SIP;cause=' + code + ';text="' + reason + '"';
   },
 
   getCancelReason: function getCancelReason (code, reason) {

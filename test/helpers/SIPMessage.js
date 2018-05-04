@@ -10,6 +10,7 @@ window.SIPHelper = {
     response.data = null;
 
     response.body = (body || 'foo').toString();
+    response.setHeader('Content-Type', 'rps');
 
     /*
      * We aren't going to parse a bunch of strings,
@@ -41,6 +42,13 @@ window.SIPHelper = {
     // From/To
     response.setHeader('from', request.getHeader('from'));
     response.setHeader('to', request.getHeader('to'));
+
+    // Transaction ACK
+    response.transaction = {
+      sendACK: function(options) {
+        return options
+      }
+    };
 
     return response;
   }
