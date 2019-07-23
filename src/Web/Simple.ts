@@ -1,13 +1,12 @@
 import { EventEmitter } from "events";
 
-import { Logger } from "../../types/logger-factory";
-import { InviteClientContext, InviteServerContext } from "../../types/session";
-import { DTMF } from "../../types/Session/dtmf";
-import { IncomingRequest, OutgoingRequest } from "../../types/sip-message";
-import { WebSessionDescriptionHandler as SessionDescriptionHandler } from "../../types/Web/session-description-handler";
-
+import { IncomingRequestMessage, Logger, OutgoingRequestMessage } from "../core";
+import { InviteClientContext, InviteServerContext } from "../Session";
+import { DTMF } from "../Session/DTMF";
 import { UA } from "../UA";
+
 import * as Modifiers from "./Modifiers";
+import { SessionDescriptionHandler } from "./SessionDescriptionHandler";
 
 /* Simple
  * @class Simple
@@ -73,7 +72,7 @@ export class Simple extends EventEmitter {
     this.options = options;
 
     // https://stackoverflow.com/questions/7944460/detect-safari-browser
-    const browserUa: string = (global as any).navigator.userAgent.toLowerCase();
+    const browserUa = navigator.userAgent.toLowerCase();
     let isSafari: boolean = false;
     let isFirefox: boolean = false;
     if (browserUa.indexOf("safari") > -1 && browserUa.indexOf("chrome") < 0) {
@@ -125,7 +124,7 @@ export class Simple extends EventEmitter {
       this.emit("unregistered", this.ua);
     });
 
-    this.ua.on("failed", () => {
+    this.ua.on("registrationFailed", () => {
       this.emit("unregistered", this.ua);
     });
 
@@ -301,7 +300,7 @@ export class Simple extends EventEmitter {
     let remoteStream: any;
 
     if (pc.getReceivers) {
-      remoteStream = new (global as any).window.MediaStream();
+      remoteStream = new MediaStream();
       pc.getReceivers().forEach((receiver: any) => {
         const track = receiver.track;
         if (track) {
@@ -333,7 +332,7 @@ export class Simple extends EventEmitter {
       const pc = (this.session.sessionDescriptionHandler as SessionDescriptionHandler).peerConnection;
       let localStream: any;
       if (pc.getSenders) {
-        localStream = new (global as any).window.MediaStream();
+        localStream = new MediaStream();
         pc.getSenders().forEach((sender: any) => {
           const track = sender.track;
           if (track && track.kind === "video") {
@@ -431,7 +430,7 @@ export class Simple extends EventEmitter {
       });
     }
 
-    this.session.on("dtmf", (request: IncomingRequest | OutgoingRequest, dtmf: DTMF) => {
+    this.session.on("dtmf", (request: IncomingRequestMessage | OutgoingRequestMessage, dtmf: DTMF) => {
       this.emit("dtmf", dtmf.tone);
     });
     this.session.on("bye", () => this.onEnded());

@@ -1,44 +1,57 @@
+export {
+  DigestAuthentication,
+  Grammar,
+  IncomingRequestMessage as IncomingRequest,
+  IncomingResponseMessage as IncomingResponse,
+  LoggerFactory,
+  NameAddrHeader,
+  OutgoingRequestMessage as OutgoingRequest,
+  Timers,
+  Transport,
+  URI
+} from "./core";
+
 export { ClientContext } from "./ClientContext";
 export { C } from "./Constants";
-export { Dialog } from "./Dialogs";
-export { DigestAuthentication } from "./DigestAuthentication";
 export {
   DialogStatus,
   SessionStatus,
-  TransactionStatus,
   TypeStrings,
   UAStatus
 } from "./Enums";
 export { Exceptions } from "./Exceptions";
-export { Grammar } from "./Grammar";
-export { LoggerFactory } from "./LoggerFactory";
-export { NameAddrHeader } from "./NameAddrHeader";
 export { Parser } from "./Parser";
 export { PublishContext } from "./PublishContext";
+export {
+  ReferClientContext,
+  ReferServerContext
+} from "./ReferContext";
 export { RegisterContext } from "./RegisterContext";
-export { RequestSender } from "./RequestSender";
-
-import { SanityCheck } from "./SanityCheck";
-const sanityCheck = SanityCheck.sanityCheck;
-export { sanityCheck };
-
 export { ServerContext } from "./ServerContext";
-export { InviteClientContext, InviteServerContext, ReferClientContext, ReferServerContext, Session } from "./Session";
-export { IncomingRequest, IncomingResponse, OutgoingRequest } from "./SIPMessage";
+export {
+  InviteClientContext,
+  InviteServerContext,
+  Session
+} from "./Session";
+export {
+  SessionDescriptionHandlerFactory,
+  SessionDescriptionHandlerFactoryOptions
+} from "./session-description-handler-factory";
+export {
+  SessionDescriptionHandler,
+  SessionDescriptionHandlerModifier,
+  SessionDescriptionHandlerModifiers,
+  SessionDescriptionHandlerOptions
+} from "./session-description-handler";
 export { Subscription } from "./Subscription";
-export { Timers } from "./Timers";
 
 import {
-  AckClientTransaction,
-  checkTransaction,
   InviteClientTransaction,
   InviteServerTransaction,
   NonInviteClientTransaction,
   NonInviteServerTransaction
-} from "./Transactions";
+} from "./core/transactions";
 const Transactions = {
-  AckClientTransaction,
-  checkTransaction,
   InviteClientTransaction,
   InviteServerTransaction,
   NonInviteClientTransaction,
@@ -46,9 +59,7 @@ const Transactions = {
 };
 export { Transactions };
 
-export { Transport } from "./Transport";
-export { UA } from "./UA";
-export { URI } from "./URI";
+export { makeUserAgentCoreConfigurationFromUA, UA } from "./UA";
 export { Utils } from "./Utils";
 
 import * as Web from "./Web/index";
@@ -63,3 +74,6 @@ export {
   name,
   version
 };
+
+import * as Core from "./core/index";
+export { Core };

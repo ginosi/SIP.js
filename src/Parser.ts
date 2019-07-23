@@ -1,10 +1,9 @@
-import { Logger } from "../types/logger-factory";
-import { UA } from "../types/ua";
-
-import { TypeStrings } from "./Enums";
-import { Grammar } from "./Grammar";
-import { IncomingRequest, IncomingResponse } from "./SIPMessage";
-// SIP.Parser = Parser;
+import {
+  Grammar,
+  IncomingRequestMessage,
+  IncomingResponseMessage,
+  Logger
+} from "./core";
 
 /**
  * Extract and parse every header of a SIP message.
@@ -47,7 +46,7 @@ export namespace Parser {
   }
 
   export function parseHeader(
-    message: IncomingRequest | IncomingResponse,
+    message: IncomingRequestMessage | IncomingResponseMessage,
     data: any,
     headerStart: number,
     headerEnd: number
@@ -122,13 +121,15 @@ export namespace Parser {
           parsed = undefined;
           break;
         }
-
-        for (const header in parsed) {
-          if (parsed[header]) {
-            message.addHeader("contact", headerValue.substring(parsed[header].position, parsed[header].offset));
-            message.headers.Contact[message.getHeaders("contact").length - 1].parsed = parsed[header].parsed;
-          }
+        if (!(parsed instanceof Array)) {
+          parsed = undefined;
+          break;
         }
+
+        parsed.forEach((header) => {
+          message.addHeader("contact", headerValue.substring(header.position, header.offset));
+          message.headers.Contact[message.getHeaders("contact").length - 1].parsed = header.parsed;
+        });
         break;
       case "content-length":
       case "l":
@@ -146,7 +147,7 @@ export namespace Parser {
         if (parsed) {
           message.cseq = parsed.value;
         }
-        if (message.type === TypeStrings.IncomingResponse) {
+        if (message instanceof IncomingResponseMessage) {
           message.method = parsed.method;
         }
         break;
@@ -191,10 +192,12 @@ export namespace Parser {
    * @param {Object} logger object.
    * @returns {SIP.IncomingRequest|SIP.IncomingResponse|undefined}
    */
-  export function parseMessage(data: string, ua: UA): IncomingRequest | IncomingResponse | undefined {
+  export function parseMessage(
+    data: string,
+    logger: Logger
+  ): IncomingRequestMessage | IncomingResponseMessage | undefined {
     let headerStart: number = 0;
     let headerEnd: number = data.indexOf("\r\n");
-    const logger: Logger = ua.getLogger("sip.parser");
 
     if (headerEnd === -1) {
       logger.warn("no CRLF found, not a SIP message, discarded");
@@ -204,17 +207,17 @@ export namespace Parser {
     // Parse first line. Check if it is a Request or a Reply.
     const firstLine: string = data.substring(0, headerEnd);
     const parsed: any = Grammar.parse(firstLine, "Request_Response");
-    let message: IncomingRequest | IncomingResponse;
+    let message: IncomingRequestMessage | IncomingResponseMessage;
 
     if (parsed === -1) {
       logger.warn('error parsing first line of SIP message: "' + firstLine + '"');
       return;
     } else if (!parsed.status_code) {
-      message = new IncomingRequest(ua);
+      message = new IncomingRequestMessage();
       message.method = parsed.method;
       message.ruri = parsed.uri;
     } else {
-      message = new IncomingResponse(ua);
+      message = new IncomingResponseMessage();
       message.statusCode = parsed.status_code;
       message.reasonPhrase = parsed.reason_phrase;
     }

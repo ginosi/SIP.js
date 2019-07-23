@@ -322,7 +322,7 @@ describe('PublishContext', function() {
 
   describe('.sendPublishRequest', function() {
     it('send publish request with body and ETag', function() {
-      spyOn(SIP.ClientContext.prototype, 'send');
+      spyOn(Publish, 'send');
 
       Publish.pubRequestBody = 'ExampleBody';
       Publish.pubRequestExpires = 180;
@@ -333,18 +333,17 @@ describe('PublishContext', function() {
 
       expect(Publish.request instanceof(SIP.OutgoingRequest)).toBeTruthy();
 
-      expect(Publish.request.ua).toBe(ua);
       expect(Publish.request.body.body).toBe('ExampleBody');
       expect(Publish.request.body.contentType).toBe('text/plain');
 
       expect(Publish.request.extraHeaders).toEqual(jasmine.arrayContaining(['X-Foo: foo', 'X-Bar: bar', 'Event: presence', 'Expires: 180', 'SIP-If-Match: TestETag']));
 
-      expect(SIP.ClientContext.prototype.send.calls.count()).toBe(1);
+      expect(Publish.send.calls.count()).toBe(1);
 
     });
 
     it('send publish request with no body', function() {
-      spyOn(SIP.ClientContext.prototype, 'send');
+      spyOn(Publish, 'send');
 
       Publish.pubRequestBody = undefined;
       Publish.pubRequestExpires = 180;
@@ -355,12 +354,11 @@ describe('PublishContext', function() {
 
       expect(Publish.request instanceof(SIP.OutgoingRequest)).toBeTruthy();
 
-      expect(Publish.request.ua).toBe(ua);
       expect(Publish.request.body).toBeUndefined();
 
       expect(Publish.request.extraHeaders).toEqual(jasmine.arrayContaining(['X-Foo: foo', 'X-Bar: bar', 'Event: presence', 'Expires: 180', 'SIP-If-Match: TestETag']));
 
-      expect(SIP.ClientContext.prototype.send.calls.count()).toBe(1);
+      expect(Publish.send.calls.count()).toBe(1);
 
     });
 
@@ -387,7 +385,7 @@ describe('PublishContext', function() {
         'SIP-ETag: 2SiNlejw',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
 
       Publish.receiveResponse(response);
 
@@ -419,7 +417,7 @@ describe('PublishContext', function() {
         'SIP-ETag: 2SiNlejw',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
 
       Publish.receiveResponse(response);
 
@@ -452,7 +450,7 @@ describe('PublishContext', function() {
         'SIP-ETag: 2SiNlejw',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
 
       Publish.receiveResponse(response);
 
@@ -485,7 +483,7 @@ describe('PublishContext', function() {
         'SIP-ETag: TestETag',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
       Publish.receiveResponse(response);
 
       Publish.pubRequestBody = undefined;
@@ -517,7 +515,7 @@ describe('PublishContext', function() {
         'Supported: outbound',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
 
       Publish.receiveResponse(response);
 
@@ -549,7 +547,7 @@ describe('PublishContext', function() {
         'Supported: outbound',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
 
       Publish.receiveResponse(response);
 
@@ -584,7 +582,7 @@ describe('PublishContext', function() {
         'Supported: outbound',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
 
       Publish.receiveResponse(response);
 
@@ -618,7 +616,7 @@ describe('PublishContext', function() {
         'Supported: outbound',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
 
       Publish.receiveResponse(response);
 
@@ -651,7 +649,7 @@ describe('PublishContext', function() {
         'SIP-ETag: TestETag',
         'Content-Length: 0',
         '',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
 
       Publish.receiveResponse(response);
 

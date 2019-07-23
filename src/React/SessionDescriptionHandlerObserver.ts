@@ -1,6 +1,5 @@
-import { InviteClientContext, InviteServerContext } from "../../types/session";
-
 import { TypeStrings } from "../Enums";
+import { InviteClientContext, InviteServerContext } from "../Session";
 
 /* SessionDescriptionHandlerObserver
  * @class SessionDescriptionHandler Observer Class.

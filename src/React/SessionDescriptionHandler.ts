@@ -5,18 +5,17 @@ import {
   RTCPeerConnection,
 } from "react-native-webrtc";
 
-import { Logger } from "../../types/logger-factory";
-import { InviteClientContext, InviteServerContext } from "../../types/session";
+import { Logger } from "../core";
+import { TypeStrings } from "../Enums";
+import { Exceptions } from "../Exceptions";
+import { InviteClientContext, InviteServerContext } from "../Session";
 import {
   BodyObj,
   SessionDescriptionHandler as SessionDescriptionHandlerDefinition,
   SessionDescriptionHandlerModifiers
-} from "../../types/session-description-handler";
-import { Utils as UtilsTypes } from "../../types/utils";
-
-import { TypeStrings } from "../Enums";
-import { Exceptions } from "../Exceptions";
+} from "../session-description-handler";
 import { Utils } from "../Utils";
+
 import * as Modifiers from "../Web/Modifiers";
 import { SessionDescriptionHandlerObserver } from "./SessionDescriptionHandlerObserver";
 
@@ -27,6 +26,19 @@ import { SessionDescriptionHandlerObserver } from "./SessionDescriptionHandlerOb
  */
 
 export class SessionDescriptionHandler extends EventEmitter implements SessionDescriptionHandlerDefinition {
+  /**
+   * @param {SIP.Session} session
+   * @param {Object} [options]
+   */
+  public static defaultFactory(
+    session: InviteClientContext | InviteServerContext,
+    options: any
+  ): SessionDescriptionHandler {
+    const logger: Logger = session.ua.getLogger("sip.invitecontext.sessionDescriptionHandler", session.id);
+    const observer: SessionDescriptionHandlerObserver = new SessionDescriptionHandlerObserver(session, options);
+    return new SessionDescriptionHandler(logger, observer, options);
+  }
+
   public type: TypeStrings;
   private options: any;
   private logger: Logger;
@@ -38,7 +50,7 @@ export class SessionDescriptionHandler extends EventEmitter implements SessionDe
   private C: any;
   private modifiers: SessionDescriptionHandlerModifiers;
   private WebRTC: any;
-  private iceGatheringDeferred: UtilsTypes.Deferred<any> | undefined;
+  private iceGatheringDeferred: Utils.Deferred<any> | undefined;
   private iceGatheringTimeout: boolean;
   private iceGatheringTimer: any | undefined;
   private constraints: any;
@@ -88,16 +100,6 @@ export class SessionDescriptionHandler extends EventEmitter implements SessionDe
     this.initPeerConnection(this.options.peerConnectionOptions);
 
     this.constraints = this.checkAndDefaultConstraints(this.options.constraints);
-  }
-
-  /**
-   * @param {SIP.Session} session
-   * @param {Object} [options]
-   */
-  public defaultFactory(session: InviteClientContext | InviteServerContext, options: any): SessionDescriptionHandler {
-    const logger: Logger = session.ua.getLogger("sip.invitecontext.sessionDescriptionHandler", session.id);
-    const observer: SessionDescriptionHandlerObserver = new SessionDescriptionHandlerObserver(session, options);
-    return new SessionDescriptionHandler(logger, observer, options);
   }
 
   // Functions the sesssion can use
@@ -192,6 +194,9 @@ export class SessionDescriptionHandler extends EventEmitter implements SessionDe
       this.logger.error(error.toString());
       throw error;
     }).then((description: RTCSessionDescriptionInit) => {
+      if (description.sdp === undefined) {
+        throw new Exceptions.SessionDescriptionHandlerError("getDescription", undefined, "SDP undefined");
+      }
       this.emit("getDescription", description);
       return {
         body: description.sdp,

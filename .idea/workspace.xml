@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7b5457c8-eb7b-4bf3-a03e-438cc9282b3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dist/sip-0.14.6.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/sip-0.14.6.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ClientContext.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Constants.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Enums.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Exceptions.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Parser.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/PublishContext.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/React/SessionDescriptionHandler.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/React/SessionDescriptionHandlerObserver.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/React/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/React/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ReferContext.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ReferContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/RegisterContext.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ServerContext.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Session.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Session/DTMF.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Subscription.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/UA.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Utils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Web/Modifiers.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Web/SessionDescriptionHandler.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Web/SessionDescriptionHandlerObserver.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Web/Simple.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Web/Transport.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Web/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/dialog-state.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/dialog-state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/dialog.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/dialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/session-dialog.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/session-dialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/subscription-dialog.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/dialogs/subscription-dialog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/exceptions/exception.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/exceptions/exception.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/exceptions/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/exceptions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/exceptions/transaction-state-error.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/exceptions/transaction-state-error.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/exceptions/transport-error.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/exceptions/transport-error.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/log/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/log/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/log/levels.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/log/levels.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/log/logger-factory.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/log/logger.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/log/logger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/body.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/body.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/digest-authentication.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/grammar.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-message.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-request-message.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-request-message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-request.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-response-message.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-response-message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-response.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/incoming-response.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/ack.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/ack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/bye.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/bye.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/cancel.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/cancel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/constants.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/info.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/invite.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/invite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/message.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/notify.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/notify.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/prack.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/prack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/publish.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/publish.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/refer.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/refer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/register.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/subscribe.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/methods/subscribe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/name-addr-header.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/outgoing-request-message.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/outgoing-request-message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/outgoing-request.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/outgoing-request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/outgoing-response.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/outgoing-response.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/parameters.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/parameters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/uri.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/utils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/messages/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/session/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/session/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/session/session-delegate.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/session/session-delegate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/session/session.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/session/session.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/subscription/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/subscription/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/subscription/subscription-delegate.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/subscription/subscription-delegate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/subscription/subscription.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/subscription/subscription.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/timers.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/client-transaction.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/client-transaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/invite-client-transaction.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/invite-client-transaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/invite-server-transaction.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/invite-server-transaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/non-invite-client-transaction.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/non-invite-client-transaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/non-invite-server-transaction.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/non-invite-server-transaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/server-transaction.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/server-transaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/transaction-state.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/transaction-state.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/transaction-user.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/transaction-user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/transaction.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transactions/transaction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/transport.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/allowed-methods.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/allowed-methods.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/user-agent-core-configuration.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/user-agent-core-configuration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/user-agent-core-delegate.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/user-agent-core-delegate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/user-agent-core.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agent-core/user-agent-core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/bye-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/bye-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/bye-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/bye-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/cancel-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/cancel-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/info-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/info-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/info-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/info-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/invite-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/invite-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/invite-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/invite-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/message-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/message-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/message-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/message-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/notify-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/notify-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/notify-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/notify-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/prack-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/prack-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/prack-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/prack-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/publish-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/publish-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/re-invite-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/re-invite-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/re-invite-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/re-invite-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/re-subscribe-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/re-subscribe-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/re-subscribe-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/re-subscribe-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/refer-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/refer-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/refer-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/refer-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/register-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/register-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/subscribe-user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/subscribe-user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/subscribe-user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/subscribe-user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/user-agent-client.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/user-agent-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/user-agent-server.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core/user-agents/user-agent-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/grammar/dist/grammar.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/grammar/dist/grammar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/session-description-handler-factory.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/session-description-handler-factory.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/session-description-handler.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/session-description-handler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/React/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ReferContext.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/dialogs/dialog-state.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/dialogs/dialog.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/dialogs/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/dialogs/session-dialog.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/dialogs/subscription-dialog.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/exceptions/exception.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/exceptions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/exceptions/transaction-state-error.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/exceptions/transport-error.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/log/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/log/levels.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/log/logger.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/body.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/incoming-message.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/incoming-request-message.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/incoming-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/incoming-response-message.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/incoming-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/ack.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/bye.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/cancel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/constants.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/info.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/invite.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/message.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/notify.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/prack.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/publish.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/refer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/register.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/methods/subscribe.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/outgoing-request-message.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/outgoing-request.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/outgoing-response.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/parameters.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/messages/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/session/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/session/session-delegate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/session/session.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/subscription/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/subscription/subscription-delegate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/subscription/subscription.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/client-transaction.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/invite-client-transaction.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/invite-server-transaction.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/non-invite-client-transaction.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/non-invite-server-transaction.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/server-transaction.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/transaction-state.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/transaction-user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/transactions/transaction.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agent-core/allowed-methods.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agent-core/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agent-core/user-agent-core-configuration.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agent-core/user-agent-core-delegate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agent-core/user-agent-core.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/bye-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/bye-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/cancel-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/info-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/info-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/invite-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/invite-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/message-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/message-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/notify-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/notify-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/prack-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/prack-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/publish-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/re-invite-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/re-invite-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/re-subscribe-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/re-subscribe-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/refer-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/refer-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/register-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/subscribe-user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/subscribe-user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/user-agent-client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/user-agents/user-agent-server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/session-description-handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/spec/Session.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/spec/Subscription.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/spec/core/mocks.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/spec/core/transactions.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/spec/core/user-agent-core.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/support/EventEmitterSpy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/support/SessionDescriptionHandlerMock.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/support/TransportFake.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/support/UserFake.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/support/Utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig-base.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/grammarGenerator.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/grammarGenerator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/sip-0.13.6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/sip-0.13.6.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/sip.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/sip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/sip.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/sip.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/karma.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ClientContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ClientContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Dialogs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/DigestAuthentication.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/messages/digest-authentication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Enums.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Enums.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Exceptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Exceptions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Grammar.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/messages/grammar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Grammar/dist/Grammar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/LoggerFactory.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/log/logger-factory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/NameAddrHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/messages/name-addr-header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/PublishContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/PublishContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/React/SessionDescriptionHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/React/SessionDescriptionHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/RegisterContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/RegisterContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/RequestSender.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SIPMessage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/SanityCheck.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ServerContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ServerContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Session.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Session/DTMF.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Session/DTMF.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Subscription.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Subscription.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Timers.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/timers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Transactions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Transport.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/transport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/UA.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/UA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/URI.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/messages/uri.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Web/SessionDescriptionHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Web/SessionDescriptionHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Web/Simple.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Web/Simple.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Web/Transport.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Web/Transport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Web/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Web/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClientContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClientContext.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dialogs.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DigestAuthentication.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/messages/digest-authentication.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enums.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enums.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exceptions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grammar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/messages/grammar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grammar/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/grammar/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grammar/src/Grammar.pegjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/grammar/src/grammar.pegjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoggerFactory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/log/logger-factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NameAddrHeader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/messages/name-addr-header.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Parser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PublishContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/PublishContext.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/React/SessionDescriptionHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/React/SessionDescriptionHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/React/SessionDescriptionHandlerObserver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/React/SessionDescriptionHandlerObserver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegisterContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterContext.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RequestSender.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SIPMessage.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SanityCheck.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerContext.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Session/DTMF.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session/DTMF.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Subscription.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Subscription.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Timers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/timers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transactions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transport.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/transport.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UA.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UA.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/URI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/messages/uri.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Modifiers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Modifiers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/SessionDescriptionHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/SessionDescriptionHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/SessionDescriptionHandlerObserver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/SessionDescriptionHandlerObserver.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Simple.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Simple.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Web/Transport.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Web/Transport.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypto-js.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/helpers/SIPMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers/SIPMessage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/helpers/sdp.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/helpers/sdp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/InviteClientContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/InviteClientContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/InviteServerContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/InviteServerContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecClientContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/SpecClientContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecDialogs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecPublishContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/SpecPublishContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecRegisterContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/SpecRegisterContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecSIPMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/SpecSIPMessage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecSanityCheck.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecServerContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/SpecServerContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/SpecSession.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecSubscription.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecUA.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/SpecUA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/SpecURI.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/SpecURI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/spec/Web/SpecTransport.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/spec/Web/SpecTransport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/tslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/Session/dtmf.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/Web/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/Web/modifiers.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/Web/session-description-handler.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/Web/simple.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/Web/transport.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/client-context.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/constants.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/dialogs.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/digest-authentication.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/enums.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/exceptions.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/grammar.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/logger-factory.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/name-addr-header.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/parser.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/publish-context.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/register-context.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/request-sender.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/sanity-check.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/server-context.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/session-description-handler-factory.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/session-description-handler-factory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/session-description-handler-observer.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/session-description-handler.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/session.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/sip-message.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/subscription.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/timers.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/transactions.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/transport.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/ua.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/uri.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/utils.d.ts" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/dist/" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package-lock.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="899">
+              <caret line="5462" column="1" selection-start-line="5462" selection-start-column="1" selection-end-line="5462" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/package-lock.json" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+        <option value="$PROJECT_DIR$/.idea/SIP.js.iml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/dbnavigator.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
+        <option value="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="947" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SIP.js" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SIP.js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b5457c8-eb7b-4bf3-a03e-438cc9282b3e" name="Default Changelist" comment="" />
+      <created>1563863824862</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1563863824862</updated>
+      <workItem from="1563863826221" duration="169000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="169000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="npm" side_tool="true" />
+      <window_info id="DB Browser" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="DB Execution Console" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" weight="0.60408163" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/Parser.js" />
+        <option value="$PROJECT_DIR$/src/ServerContext.js" />
+      </list>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="899">
+          <caret line="5462" column="1" selection-start-line="5462" selection-start-column="1" selection-end-line="5462" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

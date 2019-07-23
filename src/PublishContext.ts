@@ -1,21 +1,18 @@
-import { PublishContext as PublishContextDefinition } from "../types/publish-context";
-import { IncomingResponse } from "../types/sip-message";
-import { Transport } from "../types/transport";
-import { UA } from "../types/ua";
-import { URI } from "../types/uri";
-
 import { ClientContext } from "./ClientContext";
 import { C } from "./Constants";
+import { Body, IncomingResponseMessage, URI } from "./core";
+import { Transport } from "./core/transport";
 import { TypeStrings } from "./Enums";
 import { Exceptions } from "./Exceptions";
-import { OutgoingRequest } from "./SIPMessage";
+import { BodyObj } from "./session-description-handler";
+import { UA } from "./UA";
 import { Utils } from "./Utils";
 
 /**
  * SIP Publish (SIP Extension for Event State Publication RFC3903)
  * @class Class creating a SIP PublishContext.
  */
-export class PublishContext extends ClientContext implements PublishContextDefinition {
+export class PublishContext extends ClientContext {
   public type: TypeStrings;
 
   private options: any;
@@ -64,10 +61,6 @@ export class PublishContext extends ClientContext implements PublishContextDefin
     this.logger = ua.getLogger("sip.publish");
 
     this.pubRequestExpires = this.options.expires;
-
-    ua.on("transportCreated", (transport: Transport) =>  {
-      transport.on("transportError", () => this.onTransportError());
-    });
   }
 
   /**
@@ -149,7 +142,7 @@ export class PublishContext extends ClientContext implements PublishContextDefin
     this.emit("unpublished", undefined, C.causes.CONNECTION_ERROR);
   }
 
-  public receiveResponse(response: IncomingResponse): void {
+  public receiveResponse(response: IncomingResponseMessage): void {
     const statusCode: number = response.statusCode || 0;
     const cause: string = Utils.getReasonPhrase(statusCode);
 
@@ -250,6 +243,17 @@ export class PublishContext extends ClientContext implements PublishContextDefin
     }
   }
 
+  public send(): this {
+    this.ua.userAgentCore.publish(this.request, {
+      onAccept: (response): void => this.receiveResponse(response.message),
+      onProgress: (response): void => this.receiveResponse(response.message),
+      onRedirect: (response): void => this.receiveResponse(response.message),
+      onReject: (response): void => this.receiveResponse(response.message),
+      onTrying: (response): void => this.receiveResponse(response.message)
+    });
+    return this;
+  }
+
   private refreshRequest(): void {
     // Clean up before the run
     if (this.publishRefreshTimer) {
@@ -284,13 +288,32 @@ export class PublishContext extends ClientContext implements PublishContextDefin
       reqOptions.extraHeaders.push("SIP-If-Match: " + this.pubRequestEtag);
     }
 
-    this.request = new OutgoingRequest(C.PUBLISH, this.target, this.ua, this.options.params, reqOptions.extraHeaders);
-
-    if (this.pubRequestBody !== undefined) {
-      this.request.body = {};
-      this.request.body.body = this.pubRequestBody;
-      this.request.body.contentType = this.options.contentType;
+    const ruri = this.target instanceof URI ? this.target : this.ua.normalizeTarget(this.target);
+    if (!ruri) {
+      throw new Error("ruri undefined.");
     }
+    const params = this.options.params || {};
+    let bodyObj: BodyObj | undefined;
+    if (this.pubRequestBody !== undefined) {
+      bodyObj = {
+        body: this.pubRequestBody,
+        contentType: this.options.contentType
+      };
+    }
+    let body: Body | undefined;
+    if (bodyObj) {
+      body = Utils.fromBodyObj(bodyObj);
+    }
+
+    this.request = this.ua.userAgentCore.makeOutgoingRequestMessage(
+      C.PUBLISH,
+      ruri,
+      params.fromUri ? params.fromUri : this.ua.userAgentCore.configuration.aor,
+      params.toUri ? params.toUri : this.target,
+      params,
+      reqOptions.extraHeaders,
+      body
+    );
 
     this.send();
   }

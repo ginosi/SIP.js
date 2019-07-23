@@ -1,20 +1,17 @@
 import { EventEmitter } from "events";
 
-import { Logger } from "../../types/logger-factory";
-import { InviteClientContext, Session } from "../../types/session";
-import { DTMF as DTMFDefinition } from "../../types/Session/dtmf";
-import { IncomingRequest, IncomingResponse, OutgoingRequest } from "../../types/sip-message";
-
 import { C } from "../Constants";
+import { IncomingRequest, IncomingResponseMessage, Logger } from "../core";
 import { SessionStatus, TypeStrings } from "../Enums";
 import { Exceptions } from "../Exceptions";
+import { Session } from "../Session";
 import { Utils } from "../Utils";
 
 /**
  * @class DTMF
  * @param {SIP.Session} session
  */
-export class DTMF extends EventEmitter implements DTMFDefinition {
+export class DTMF extends EventEmitter {
   public type: TypeStrings;
   public tone: string;
   public duration: number;
@@ -101,32 +98,32 @@ export class DTMF extends EventEmitter implements DTMFDefinition {
     // Get DTMF options
     const extraHeaders: Array<string> = options.extraHeaders ? options.extraHeaders.slice() : [];
 
-    const body: any = {
+    const body = {
       contentType: "application/dtmf-relay",
       body: "Signal= " + this.tone + "\r\nDuration= " + this.duration
     };
 
-    if (this.owner.dialog) {
-      const request: OutgoingRequest = this.owner.dialog.sendRequest(this, C.INFO, {
+    if (this.owner.session) {
+      const request = this.owner.session.info(undefined, {
         extraHeaders,
-        body
+        body: Utils.fromBodyObj(body)
       });
-
-      this.owner.emit("dtmf", request, this);
+      this.owner.emit("dtmf", request.message, this);
+      return;
     }
   }
 
   public init_incoming(request: IncomingRequest): void {
-    request.reply(200);
+    request.accept();
 
     if (!this.tone || !this.duration) {
       this.logger.warn("invalid INFO DTMF received, discarded");
     } else {
-      this.owner.emit("dtmf", request, this);
+      this.owner.emit("dtmf", request.message, this);
     }
   }
 
-  public receiveResponse(response: IncomingResponse): void {
+  public receiveResponse(response: IncomingResponseMessage): void {
     const statusCode: number = response && response.statusCode ? response.statusCode : 0;
 
     switch (true) {
@@ -158,7 +155,7 @@ export class DTMF extends EventEmitter implements DTMFDefinition {
     this.owner.onTransportError();
   }
 
-  public onDialogError(response: IncomingResponse): void {
+  public onDialogError(response: IncomingResponseMessage): void {
     this.emit("failed", response, C.causes.DIALOG_ERROR);
     this.owner.onDialogError(response);
   }

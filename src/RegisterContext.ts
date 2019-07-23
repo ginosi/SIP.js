@@ -1,22 +1,29 @@
-import { RegisterContext as RegisterContextDefinition } from "../types/register-context";
-import { IncomingResponse } from "../types/sip-message";
-import { Transport } from "../types/transport";
-import { UA } from "../types/ua";
-import { URI } from "../types/uri";
-
 import { ClientContext } from "./ClientContext";
 import { C } from "./Constants";
+import { Grammar, IncomingResponseMessage, URI } from "./core";
+import { Transport } from "./core/transport";
 import { TypeStrings } from "./Enums";
 import { Exceptions } from "./Exceptions";
-import { Grammar } from "./Grammar";
+import { UA } from "./UA";
 import { Utils } from "./Utils";
+
+export namespace RegisterContext {
+  export interface RegistrationConfiguration {
+    expires?: string;
+    extraContactHeaderParams?: Array<string>;
+    instanceId?: string;
+    params?: any;
+    regId?: number;
+    registrar?: string;
+  }
+}
 
 /**
  * Configuration load.
  * @private
  * returns {any}
  */
-function loadConfig(configuration: RegisterContextDefinition.RegistrationConfiguration): any {
+function loadConfig(configuration: RegisterContext.RegistrationConfiguration): any {
   const settings = {
     expires: 600,
     extraContactHeaderParams: [],
@@ -140,10 +147,9 @@ function getConfigurationCheck(): any {
   };
 }
 
-export class RegisterContext extends ClientContext implements RegisterContextDefinition {
+export class RegisterContext extends ClientContext {
   public type: TypeStrings;
   public registered: boolean;
-  public cseq: number;
 
   private options: any;
   private expires: number;
@@ -197,18 +203,13 @@ export class RegisterContext extends ClientContext implements RegisterContextDef
     // Registration expires
     this.expires = settings.expires;
 
-    // Cseq
-    this.cseq = settings.params.cseq;
-
     // Contact header
     this.contact = ua.contact.toString();
 
     // Set status
     this.registered = false;
 
-    ua.on("transportCreated", (transport: Transport): void => {
-      transport.on("disconnected", () => this.onTransportDisconnected());
-    });
+    ua.transport.on("disconnected", () => this.onTransportDisconnected());
   }
 
   public register(options: any = {}): void {
@@ -234,9 +235,9 @@ export class RegisterContext extends ClientContext implements RegisterContextDef
     this.closeHeaders = this.options.closeWithHeaders ?
       (this.options.extraHeaders || []).slice() : [];
 
-    this.receiveResponse = (response: IncomingResponse) => {
+    this.receiveResponse = (response: IncomingResponseMessage) => {
       // Discard responses to older REGISTER/un-REGISTER requests.
-      if (response.cseq !== this.cseq) {
+      if (response.cseq !== this.request.cseq) {
         return;
       }
 
@@ -307,10 +308,10 @@ export class RegisterContext extends ClientContext implements RegisterContextDef
 
           // Save gruu values
           if (contact.hasParam("temp-gruu")) {
-            this.ua.contact.temp_gruu = Grammar.URIParse(contact.getParam("temp-gruu").replace(/"/g, ""));
+            this.ua.contact.tempGruu = Grammar.URIParse(contact.getParam("temp-gruu").replace(/"/g, ""));
           }
           if (contact.hasParam("pub-gruu")) {
-            this.ua.contact.pub_gruu = Grammar.URIParse(contact.getParam("pub-gruu").replace(/"/g, ""));
+            this.ua.contact.pubGruu = Grammar.URIParse(contact.getParam("pub-gruu").replace(/"/g, ""));
           }
 
           this.registered = true;
@@ -341,12 +342,10 @@ export class RegisterContext extends ClientContext implements RegisterContextDef
       this.registrationFailure(undefined, C.causes.CONNECTION_ERROR);
     };
 
-    this.cseq++;
-    if (this.request) {
-      this.request.cseq = this.cseq;
-      this.request.setHeader("cseq", this.cseq + " REGISTER");
-      this.request.extraHeaders = extraHeaders;
-    }
+    this.request.cseq++;
+    this.request.setHeader("cseq", this.request.cseq + " REGISTER");
+    this.request.extraHeaders = extraHeaders;
+
     this.send();
   }
 
@@ -408,22 +407,30 @@ export class RegisterContext extends ClientContext implements RegisterContextDef
       // this.unregistered(undefined, SIP.C.causes.REQUEST_TIMEOUT);
     };
 
-    this.cseq++;
-    if (this.request) {
-      this.request.cseq = this.cseq;
-      this.request.setHeader("cseq", this.cseq + " REGISTER");
-      this.request.extraHeaders = extraHeaders;
-    }
+    this.request.cseq++;
+    this.request.setHeader("cseq", this.request.cseq + " REGISTER");
+    this.request.extraHeaders = extraHeaders;
 
     this.send();
   }
 
-  public unregistered(response?: IncomingResponse, cause?: string): void {
+  public unregistered(response?: IncomingResponseMessage, cause?: string): void {
     this.registered = false;
     this.emit("unregistered", response || undefined, cause || undefined);
   }
 
-  private registrationFailure(response: IncomingResponse | undefined, cause: string): void {
+  public send(): this {
+    this.ua.userAgentCore.register(this.request, {
+      onAccept: (response): void => this.receiveResponse(response.message),
+      onProgress: (response): void => this.receiveResponse(response.message),
+      onRedirect: (response): void => this.receiveResponse(response.message),
+      onReject: (response): void => this.receiveResponse(response.message),
+      onTrying: (response): void => this.receiveResponse(response.message)
+    });
+    return this;
+  }
+
+  private registrationFailure(response: IncomingResponseMessage | undefined, cause: string): void {
     this.emit("failed", response || undefined, cause || undefined);
   }
 

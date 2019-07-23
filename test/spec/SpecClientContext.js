@@ -10,7 +10,10 @@ describe('ClientContext', function() {
     SIP.OutgoingRequest.send = jasmine.createSpy('send');
 
     ua = new SIP.UA({uri: 'alice@example.com', wsServers: 'ws:server.example.com'});
-    ua.transport = jasmine.createSpyObj('transport', ['disconnect']);
+    ua.transport = jasmine.createSpyObj('transport', ['connect', 'disconnect', 'send', 'on', 'removeListener']);
+    ua.transport.connect.and.returnValue(Promise.resolve());
+    ua.transport.disconnect.and.returnValue(Promise.resolve());
+    ua.transport.send.and.returnValue(Promise.resolve());
     method = SIP.C.INVITE;
     target = 'alice@example.com';
     body = '{"foo":"bar"}';
@@ -88,7 +91,7 @@ describe('ClientContext', function() {
         'Content-Length: 11',
         '',
         'a= sendrecv',
-        ''].join('\r\n'), ua);
+        ''].join('\r\n'), ua.getLogger("sip.parser"));
     });
 
     it('emits progress on a 100-199 response', function() {
